@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Honghao's Blog new post</title>
+		<link type="text/css" rel="stylesheet" href="/static/blog.css" />
+	</head>
+	
+	<body>
+	<div class="post-title">New Post</div>
+	
+	<form method="post">
+		<label>
+			<div class="post">Subject</div>
+			<input type="text" name="subject" value="{{subject}}">
+		</label>
+		
+		<label>
+			<div class="post">Content</div>
+			<textarea name="content" cols="70" rows="20">{{content}}</textarea>
+		</label>
+		
+		<div class="error">{{error}}</div>
+		<input type="submit">
+	</form>
+	<!--
+	<hr>
+	
+	{% for art in arts %}
+		<div class = "art">
+			<div class = "art-title">{{art.title}}</div>
+			<pre class = "art-body">{{art.art}}</pre>
+		</div>
+	{% endfor %}
+	-->
+	</body>
+</html>

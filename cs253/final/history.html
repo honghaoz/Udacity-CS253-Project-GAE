@@ -1,0 +1,21 @@
+{% extends "/final/base.html" %}
+
+{% block content %}
+  <div class="history">
+  	<table>
+  	{% for page in  pages %}
+  		<tr>
+  			<td>{{page.last_modified.strftime("%H:%M:%S %a, %b %e, %Y")}}</td>
+  			<td>{{page.content}}</td>
+  			{% if page.author == "" %}
+  				<td>by No Name</td>
+  			{% else %}
+  				<td>by {{page.author}}</td>
+  			{% endif %}
+  			<td><a href="/final/{{page_id}}?v={{page.current_version}}">View</a></td>
+  			<td></td>
+  		</tr>
+  	{% endfor %}
+  	</table>
+  <div>
+{% endblock %}

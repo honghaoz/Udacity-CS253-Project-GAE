@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CS 253 Final Wiki</title>
+  <link type="text/css" rel="stylesheet" href="/static/blog.css" />
+</head>
+
+<body>
+  <a href="/final" class="main-title">
+    CS 253 Final Wiki
+  </a>
+  {{return_url | safe}}
+  
+  {% if uid == "" %}
+  	<div class="login-area">
+  	   <a class="login-link" href="/final/_history/{{page_id}}">History</a>
+  	   &nbsp&nbsp
+  	   <a class="login-link" href="/final/login">Login</a>
+  	   |
+       <a class="login-link" href="/final/signup">Signup</a>
+	</div>
+  {% else %}
+  	<div class="login-area">
+  	<a class="login-link" href="/final/_edit/{{page_id}}">Edit</a>
+  	|
+  	<a class="login-link" href="/final/_history/{{page_id}}">History</a>
+  	   &nbsp&nbsp
+      <span  class="user">{{uid}}</span> (<a class="login-link" href="/final/logout">Logout</a>)
+	</div>
+  {% endif%}
+  
+  <div>
+  {% block content %}
+  {% endblock %}
+  </div>
+  
+  <br>
+  <footer>
+		Created by Honghao Zhang!
+  </footer>	
+</body>
+
+</html>
+

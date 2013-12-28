@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Honghao's Public Blog</title>	
+	<link type="text/css" rel="stylesheet" href="/static/blog.css" />
+</head>
+
+<body>
+  <a href="/p5-1" class="main-title">
+    Honghao's Public Blog
+  </a>
+  {{return_url | safe}}
+  
+  {% if uid == "" %}
+  	<div class="login-area">
+  	   <a class="login-link" href="/p5-1/login">Login</a>
+  	   |
+       <a class="login-link" href="/p5-1/signup">Signup</a>
+	</div>
+  {% else %}
+  	<div class="login-area">
+      <span  class="user">{{uid}}</span> (<a class="login-link" href="/p5-1/logout">Logout</a>)
+      <br>
+      <a class="login-link" href="/p5-1/newpost">New Post</a>
+	</div>
+  {% endif%}
+  
+  	{% for blog in blogs %}
+  	<div class="post">
+	  	<div class="post-heading">
+		  	<div class="post-title">
+			  	<a href="/p5-1/{{blog.key().id()}}" class="post-title">{{blog.subject}}</a>
+			</div>
+
+			<div class="post-date">
+				{{blog.posted.strftime("%H:%M:%S %a, %b %e, %Y")}}
+			</div>
+		</div>
+		<div class="post-content">
+			<p>{{replace_endl(blog.content) | safe}}</p>
+		</div>
+		
+		<br />
+		<br />
+		<br />
+  	</div>
+	{% endfor %}
+	
+	<footer>
+		Created by Honghao Zhang!
+		<div class="query">
+			{{queried_time}}
+		</div>
+	</footer>
+</body>
+
+</html>
